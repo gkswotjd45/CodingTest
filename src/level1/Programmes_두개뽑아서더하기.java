@@ -1,4 +1,4 @@
-package java_codingTest_연습;
+package level1;
 
 import java.util.ArrayList;
 import java.util.Collections;
