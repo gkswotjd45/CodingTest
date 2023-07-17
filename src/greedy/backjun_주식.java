@@ -22,7 +22,7 @@ public class backjun_주식 {
 			// 주식 개장 날
 			int day;
 			day = Integer.parseInt(br.readLine());
-			// 주식 흐름 
+			// 주식 흐름            
 			int stock[] = new int[day];
 			st = new StringTokenizer(br.readLine());
 
