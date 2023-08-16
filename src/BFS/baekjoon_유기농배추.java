@@ -7,7 +7,6 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-import javax.print.attribute.standard.Sides;
 
 public class baekjoon_유기농배추 {
 	static StringBuilder sb;

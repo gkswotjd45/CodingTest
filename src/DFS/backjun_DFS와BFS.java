@@ -27,7 +27,7 @@ public class backjun_DFS와BFS {
 		DFSvisited = new boolean[Node+1];
 
 		// 그래프 초기화
-		for (int i = 0; i <= Node; i++) {
+		for (int i = 0; i < Node; i++) {
 			graph.add(new ArrayList<>());
 		}
 

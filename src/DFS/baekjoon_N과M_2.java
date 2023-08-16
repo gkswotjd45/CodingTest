@@ -47,9 +47,9 @@ public class baekjoon_N과M_2 {
 
 			if (visited[i] != true) {
 				visited[i] = true;
+				// 현재 깊이를 index로 하여 해당 위치에 i 값을 저장
 				arr[depth] = i;
 				DFS(i + 1, depth + 1);
-				
 				visited[i] = false;
 			}
 		}

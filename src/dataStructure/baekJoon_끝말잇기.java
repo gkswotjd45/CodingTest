@@ -18,7 +18,7 @@ public class baekJoon_끝말잇기 {
 		int wordTotal = Integer.parseInt(br.readLine());
 
 		Set<String> word = new LinkedHashSet<>();
-		String list[] = new String[wordTotal];
+//		String list[] = new String[wordTotal];
 
 		// 물음표의 순번
 		int index = 0;
@@ -27,11 +27,13 @@ public class baekJoon_끝말잇기 {
 		for (int i = 0; i < wordTotal; i++) {
 			String str = br.readLine();
 			word.add(str);
-			list[i] = str;
+			// list[i] = str;
 			if (str.equals("?")) {
 				index = i;
 			}
 		}
+
+		List<String> wordList = new ArrayList<>(word);
 
 		int listTotal = Integer.parseInt(br.readLine());
 
@@ -43,11 +45,22 @@ public class baekJoon_끝말잇기 {
 			copy.add(str);
 		}
 
-		String frist = list[index - 1];
-		String last = list[index + 1];
+//		String frist = list[index - 1];
+//		String last = list[index + 1];
+		String front = null;
+		String last = null;
+		if (index > 0 && index < wordList.size()) {
+			front = wordList.get(index - 1);
+			last = wordList.get(index + 1);
+		} else if (index == 0) {
+			last = wordList.get(index + 1);
+		} else if (index + 1 == wordList.size()) {
+			front = wordList.get(index - 1);
+		}
 
 		// 중복된 단어를 제외한 값 배열 목록
 		copy.removeAll(word);
+
 		// 중복된 단어 배열 목록
 		// copy.retainAll(word);
 		sb = new StringBuilder();
@@ -56,8 +69,12 @@ public class baekJoon_끝말잇기 {
 
 		while (iter.hasNext()) {
 			String str = iter.next();
-			if (frist.charAt(frist.length() - 1) == str.charAt(0)
+			if (last != null &&front != null && front.charAt(front.length() - 1) == str.charAt(0)
 					&& last.charAt(0) == str.charAt(str.length() - 1)) {
+				sb.append(str);
+			}else if(front == null && last.charAt(0) == str.charAt(str.length() - 1)) {
+				sb.append(str);
+			}else if(last == null && front.charAt(front.length() - 1) == str.charAt(0)) {
 				sb.append(str);
 			}
 		}
